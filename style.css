@@ -1,0 +1,14 @@
+:root{
+  --bg:#061322; --card:#0b1724; --muted:#98a8bf; --accent:#6b4cff;
+  --bank:#e74c3c; --player:#2ea6ff; --tie:#f2c94c; --glass: rgba(255,255,255,0.03);
+  --text:#e9f2ff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#021016);color:var(--text)}
+header{display:flex;justify-content:space-between;padding:14px 18px;align-items:center}
+.brand{font-weight:900;font-size:1.1rem}
+.muted{color:var(--muted)}
+main{display:flex;gap:14px;padding:14px;max-width:1100px;margin:0 auto}
+.left-col{flex:1}
+.right-col{width:360px}
+.panel{background:linear-gradient
