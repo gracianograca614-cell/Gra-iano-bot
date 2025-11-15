@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BacBo Robot — V2 (Auto & Stats)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="brand">BacBo Robot — <span class="muted">V2</span></div>
+      <div class="user">Sessão: <span id="sessionName">Visitante</span></div>
+    </header>
+
+    <main>
+      <section class="left-col panel">
+        <h2>Mesa & Sinal</h2>
+
+        <div class="scene panel mini">
+          <!-- optional 3D placeholder -->
+          <canvas id="sceneCanvas" width="600" height="200"></canvas>
+        </div>
+
+        <div class="controls panel">
+          <div class="row">
+            <label>Seed (opcional): <input id="seedInput" placeholder="texto ou número"></label>
+            <label>Intervalo (s): <input id="intervalInput" type="number" min="1" value="6" style="width:72px"></label>
+          </div>
+
+          <div class="row">
+            <button id="btnAuto" class="btn ghost">Auto (Desligado)</button>
+            <button id="btnStep" class="btn">Gerar 1 Rodada</button>
+            <button id="btnClear" class="btn ghost">Limpar Histórico</button>
+          </div>
+
+          <div class="row">
+            <label class="file">Enviar print-shot: <input id="imgInput" type="file" accept="image/*"></label>
+            <button id="btnExport" class="btn ghost">Exportar Log</button>
+          </div>
+
+        </div>
+
+        <div class="signal panel">
+          <div class="signal-left">
+            <div class="dot" id="mainDot"></div>
+            <div>
+              <div id="mainSignal" class="big">Sinal: —</div>
+              <div id="signalStrength" class="small muted">Força: —</div>
+            </div>
+          </div>
+          <div class="signal-right">
+            <div class="small muted">Última análise: <span id="lastAnal">—</span></div>
+            <div class="small muted">Modo AutoBet: <span id="autoBetMode">OFF</span></div>
+          </div>
+        </div>
+
+        <div class="panel tiny">
+          <strong>Recomendação:</strong>
+          <div id="robotMsg" class="robotMsg">—</div>
+        </div>
+
+        <div class="note">
+          ⚠️ Uso para treino e estudo. Joga com responsabilidade. Use limites (stop loss / take profit).
+        </div>
+      </section>
+
+      <aside class="right-col">
+        <div class="panel">
+          <h3>Geradores</h3>
+          <div class="gen-row">
+            <div>
+              <strong>Cassino</strong>
+              <div id="cassinoRes" class="result">—</div>
+            </div>
+            <div>
+              <strong>Meu Gerador</strong>
+              <div id="meuRes" class="result">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Histórico (últimas 100)</h3>
+          <div id="history" class="history"></div>
+        </div>
+
+        <div class="panel stats">
+          <h3>Estatísticas</h3>
+          <div>Rodadas: <span id="statRounds">0</span></div>
+          <div>Banca: <span id="statBank">0</span></div>
+          <div>Player: <span id="statPlayer">0</span></div>
+          <div>Empate: <span id="statTie">0</span></div>
+          <div>Coincidências: <span id="statMatch">0</span></div>
+        </div>
+
+        <div class="panel">
+          <h3>Auto-Bet (Simulação)</h3>
+          <label>Bankroll inicial: <input id="bankroll" type="number" value="10000" min="1"></label>
+          <label>Stake por aposta: <input id="stake" type="number" value="1000" min="1"></label>
+          <label>Stop Loss (perdas seguidas): <input id="stopLoss" type="number" value="3" min="1"></label>
+          <label>Take Profit (lucro alvo): <input id="takeProfit" type="number" value="2000" min="1"></label>
+          <div style="margin-top:8px">
+            <button id="btnAutoBet" class="btn ghost">Auto-Bet (OFF)</button>
+            <div class="small muted">Saldo: <span id="bankrollDisplay">10000</span></div>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <div class="small muted">Desenvolvido por: <strong>Graciano</strong> · V2</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
